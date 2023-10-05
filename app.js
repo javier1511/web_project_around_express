@@ -1,10 +1,12 @@
 const express = require('express');
+const path = require('path'); // Importar el módulo 'path'
+
 const app = express();
 const port = 3000; // Puerto en el que se ejecutará la API
 
 // Importar las rutas de users.js y cards.js
-const usersRoute = require('./routes/users');
-const cardsRoute = require('./routes/cards');
+const usersRoute = require(path.join(__dirname, 'routes', 'users')); // Usar path.join para definir la ruta del módulo
+const cardsRoute = require(path.join(__dirname, 'routes', 'cards')); // Usar path.join para definir la ruta del módulo
 
 app.use('/cards', cardsRoute);
 app.use('/users', usersRoute);
