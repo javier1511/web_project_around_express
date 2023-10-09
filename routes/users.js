@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
     const users = JSON.parse(data);
     res.json(users);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error('Error al leer el archivo:', err);
     res.status(500).json({ error: 'No se pudo obtener la lista de usuarios' });
   }
@@ -41,7 +42,6 @@ router.get('/:id', (req, res) => {
     // Enviar el usuario encontrado como respuesta
     res.json(foundUser);
   } catch (err) {
-    console.error('Error al leer el archivo:', err);
     res.status(500).json({ error: 'No se pudo obtener la lista de usuarios' });
   }
 });

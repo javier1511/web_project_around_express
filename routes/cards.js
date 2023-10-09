@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
   // Leer el archivo JSON y enviarlo como respuesta
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Error al leer el archivo:', err);
       res.status(500).json({ error: 'No se pudo obtener la lista de tarjetas' });
       return;
     }
