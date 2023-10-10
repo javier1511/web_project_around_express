@@ -17,6 +17,4 @@ app.use((req, res) => {
 
 // Iniciar el servidor en el puerto especificado
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(`API escuchando en http://localhost:${port}`);
 });
