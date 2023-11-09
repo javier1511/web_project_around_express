@@ -1,25 +1,13 @@
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
-// Importar el módulo path
+
 const router = express.Router();
 
-// Ruta para obtener la lista de usuarios
-router.get('/', (req, res) => {
-  // Construir la ruta al archivo JSON usando path.join
-  const filePath = path.join(__dirname, '..', 'data', 'cards.json');
+const CardsController = require('../controllers/cards');
 
-  // Leer el archivo JSON y enviarlo como respuesta
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      res.status(500).json({ error: 'No se pudo obtener la lista de tarjetas' });
-      return;
-    }
-
-    // Analizar el contenido JSON y enviarlo como respuesta
-    const cards = JSON.parse(data);
-    res.json(cards);
-  });
-});
+router.get('/cards', CardsController.getAllCards);
+router.post('/cards', CardsController.createCards);
+router.delete('/cards/:id', CardsController.deleteCardById);
+router.put('/cards/:id', CardsController.likeCard);
+router.delete('/cards/:id', CardsController.dislikeCard);
 
 module.exports = router;
