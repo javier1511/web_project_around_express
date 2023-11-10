@@ -1,4 +1,3 @@
-const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -18,7 +17,6 @@ app.use((req, res, next) => {
   req.user = {
     _id: '654d8c87ef1129c2a10914bf',
   };
-
   next();
 });
 
