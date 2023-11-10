@@ -5,13 +5,13 @@ const urlCondition = /(https:\/\/|http:\/\/)(w{3}\.)?[/\S]+\/?[^\S]*[#]?$/;
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    minlength: 2, // Propiedad corregida: 'minlength' en lugar de 'minlenght'
+    minlength: 2, 
     maxlength: 30,
     required: true,
   },
   about: {
     type: String,
-    minlength: 2, // Propiedad corregida: 'minlength' en lugar de 'minlenght'
+    minlength: 2,
     maxlength: 30,
     required: true,
   },

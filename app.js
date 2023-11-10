@@ -1,23 +1,26 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
-const port = 3000;
+const PORT = 3000;
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/arounddb');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+mongoose.connect('mongodb://127.0.0.1:27017/aroundb');
 
 app.use('/cards', require('./routes/cards'));
-app.use('/users', require('./routes/users')); // Corregir el paréntesis de cierre
+app.use('/users', require('./routes/users'));
 
 app.use((req, res, next) => {
   req.user = {
-    _id: '654c2e033805e20d851a966e',
+    _id: '654d8c87ef1129c2a10914bf',
   };
+
   next();
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.listen(port, () => {
+app.listen(PORT, () => {
 });

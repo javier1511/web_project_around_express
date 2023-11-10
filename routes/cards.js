@@ -4,10 +4,10 @@ const router = express.Router();
 
 const CardsController = require('../controllers/cards');
 
-router.get('/cards', CardsController.getAllCards);
-router.post('/cards', CardsController.createCards);
-router.delete('/cards/:id', CardsController.deleteCardById);
-router.put('/cards/:id', CardsController.likeCard);
-router.delete('/cards/:id', CardsController.dislikeCard);
+router.get('/', CardsController.getAllCards);
+router.post('/', CardsController.createCards);
+router.delete('/:id', CardsController.deleteCardById);
+router.put('/id', CardsController.likeCard);
+router.delete('/:id', CardsController.dislikeCard);
 
 module.exports = router;
